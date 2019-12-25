@@ -17,7 +17,7 @@ however, there is no garbage collection.
 
 ## Performance
 
-'''
+```
 #'s alloc.      W/out MM   With MM
 1000            0.006      0.006
 10000		0.008      0.007
@@ -34,4 +34,6 @@ however, there is no garbage collection.
 10000000	1.324      0.776
 50000000        6.446      3.922
 100000000      12.948      7.631 
-'''
+```
+
+![picture](https://github.com/weesan/memmgr/blob/master/test/performance.png)
