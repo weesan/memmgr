@@ -1,0 +1,11 @@
+.deps/
+autom4te.cache/
+autoscan.log
+config.log
+config.h
+config.status
+Makefile
+stamp-h1
+test/test
+test/test_mm
+*.o
