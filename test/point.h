@@ -8,7 +8,7 @@
 #define POINT_H
 
 #ifdef USE_MM
-#include "mem_mgr.h"
+#include "memmgr.h"
 #endif
 
 class Point {
