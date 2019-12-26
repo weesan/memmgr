@@ -27,8 +27,7 @@ public:
 	return (_y);
     }
 #ifdef USE_MM
-    void *operator new(size_t size);
-    void operator delete(void *p);
+    MEMMGR_DECLARE(Point)
 #endif
 };
 

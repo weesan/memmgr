@@ -11,6 +11,26 @@
 #include <assert.h>
 #include <pthread.h>
 
+#define MEMMGR_DECLARE(CLASS)                          \
+    public:                                            \
+        void *operator new(size_t size);               \
+        void operator delete(void *p);
+
+#define MEMMGR_IMPLEMENT(CLASS, N)                     \
+    /* Fixed-size memory manager for class Point */    \
+    static MemMgr _##CLASS(sizeof(CLASS), N);          \
+                                                       \
+    /* Overload operator new for class Point */        \
+    void *CLASS::operator new(size_t size) {           \
+        return (_##CLASS.malloc());                    \
+    }                                                  \
+                                                       \
+    /* Overload operator delete for class Point */     \
+    void CLASS::operator delete(void *p) {             \
+        _##CLASS.free(p);                              \
+    }
+
+
 class MemMgr {
 private:
     pthread_mutex_t _mutex;

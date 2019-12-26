@@ -8,17 +8,6 @@
 
 #ifdef USE_MM
 
-// Fixed-size memory manager for class Point
-static MemMgr cMemMgr(sizeof(Point), 1000);
-
-// Overload operator new for class Point
-void *Point::operator new(size_t size) {
-    return (cMemMgr.malloc());
-}
-
-// Overload operator delete for class Point
-void Point::operator delete(void *p) {
-    cMemMgr.free(p);
-}
+MEMMGR_IMPLEMENT(Point, 1000);
 
 #endif
